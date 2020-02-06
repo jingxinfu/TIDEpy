@@ -8,12 +8,12 @@ This is the script to calculate the TIDE score and immunesuppresive metrics for 
 
 1. If it's possible, please input a normalized expression file follows the instruction:
 
-         - The gene expression value should be normalized toward a control sample which could be either normal tissues related with a cancer type or mixture sample from diverse tumor samples. The log2(RPKM+1) values from a RNA-seq experiment may not be meaningful unless a good reference control is available to adjust the batch effect and cancer type difference. In our study, we used the all sample average in each study as the normalization control.
+   - The gene expression value should be normalized toward a control sample which could be either normal tissues related with a cancer type or mixture sample from diverse tumor samples. The log2(RPKM+1) values from a RNA-seq experiment may not be meaningful unless a good reference control is available to adjust the batch effect and cancer type difference. In our study, we used the all sample average in each study as the normalization control.
          
-         - Otherwise, We'll do the normalization for you by:
+   - Otherwise, We'll do the normalization for you by:
          
-                  1. Do the log2(x+1) transformation
-                  2. Subtract the average across your samples.
+        1. Do the log2(x+1) transformation
+        2. Subtract the average across your samples.
 
 2. If it's possible, please convert your gene identifier into Entrez ID based on your annotation GTF files. 
       Otherwise, we will use our annotation GTF to do the conversion, which is gencode v27.
