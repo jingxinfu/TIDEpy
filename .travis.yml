@@ -1,22 +1,38 @@
 language: python
+cache:
+  directories:
+    - $HOME/miniconda3
+
+before_cache:
+  - rm -rf $HOME/miniconda3/pkgs/cache
+  - rm -rf $HOME/miniconda3/envs/hosts
+  - rm -rf $HOME/miniconda3/conda-meta/history
+  - touch $HOME/miniconda3/conda-meta/history
+
+os:
+  - linux
+  - osx
+
+env:
+  - PYTHON_VERSION="3.5"
+  - PYTHON_VERSION="3.6"
+  - PYTHON_VERSION="3.7"
+
+before_install:
+  - export PATH="$HOME/miniconda3/bin:$PATH"
+
 python:
+  - "3.7"
   - "3.6"
-  - "3.3"
-  - "3.0"
+  - "3.5"
   - "2.7"
 branches:
   only:
   - master
   - /^v.*$/
-before_install:
-  - wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh; 
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - conda create -q -n test-enviroment python=$TRAVIS_PYTHON_VERSION
-  - wget http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.zip
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: 
-- source activate test-environment
+- ci/install_conda.sh
+- ci/setup_conda_env.sh
 - pip install .
 # # command to run tests, e.g. python setup.py test
 script:  
