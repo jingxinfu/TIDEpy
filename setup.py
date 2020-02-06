@@ -3,9 +3,9 @@ from TIDE import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
-    
+
 setuptools.setup(
-    name="TIDE", 
+    name="TIDE",
     version=__version__,
     author="Jingxin Fu",
     author_email="jingxinfu.tj@gmail.com",
@@ -15,7 +15,7 @@ setuptools.setup(
     url="https://github.com/jingxinfu/TIDEpy",
     packages=setuptools.find_packages(),
     scripts=['bin/TIDE'],
-    package_data={'TIDEpy': ["data/*.pkl",'example/*'],},
+    package_data={'TIDEpy': ["data/*.pkl"],},
     include_package_data=True,
     install_requires=['pandas','numpy'],
     python_requires='>=2.7, <4',
