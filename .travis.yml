@@ -1,16 +1,25 @@
 language: python
 python:
+  - "3.6"
+  - "3.3"
   - "3.0"
   - "2.7"
+branches:
+  only:
+  - master
+  - /^v.*$/
 before_install:
-  - "wget http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.zip"
+  - wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh; 
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - conda create -q -n test-enviroment python=$TRAVIS_PYTHON_VERSION
+  - wget http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.zip
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: 
-  - pip install .
-  - pip install nose coverage
-  - pip install coveralls 
+- source activate test-environment
+- pip install .
 # # command to run tests, e.g. python setup.py test
 script:  
   - tidepy GSE78220.self_subtract.zip -c Melanoma -o test 
 after_sucess:
-  coveralls
+ 

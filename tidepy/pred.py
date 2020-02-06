@@ -18,8 +18,8 @@ import pandas as pd
 import numpy as np
 from tidepy import utils
 from tidepy import model
-from tidepy import MODEL_DB
-
+from tidepy import MODEL_DB_PATH
+MODEL_DB = pd.read_pickle(MODEL_DB_PATH)
 def TIDE(expression, cancer, pretreat=False, vthres=0):
     # translate the number of expression
     expression = utils.toEntrez(expression)

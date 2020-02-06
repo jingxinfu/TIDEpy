@@ -13,7 +13,8 @@
 
 
 import pandas as pd
-from tidepy import GENE_REF
+from tidepy import GENE_REF_PATH
+GENE_REF = pd.read_pickle(GENE_REF_PATH)
 
 def toEntrez(expression,gene_ref=GENE_REF):
     ''' Convert expression matrix with Ensemble ID or Gene symbol as index to expression matrix with Entrez ID
