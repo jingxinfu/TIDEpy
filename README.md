@@ -93,7 +93,7 @@ Please download the first example file under **Response Prediction** module on o
 
 ```python
 import TIDE
-df = pd.read_csv(GSE78220.self_subtract.zip,sep='\t',index_col=0)
+df = pd.read_csv("GSE78220.self_subtract.zip",sep='\t',index_col=0)
 result = TIDE.ResponsePrediction(df,cancer='Melanoma',pretreat=False,vthres=0.)
 result.head(2)
 """
