@@ -16,11 +16,11 @@ __doc__="""
 
 import pandas as pd
 import numpy as np
-from TIDE import utils
-from TIDE import model
-from TIDE import MODEL_DB
+from tidepy import utils
+from tidepy import model
+from tidepy import MODEL_DB
 
-def ResponsePrediction(expression, cancer, pretreat=False, vthres=0):
+def TIDE(expression, cancer, pretreat=False, vthres=0):
     # translate the number of expression
     expression = utils.toEntrez(expression)
     is_normalized = utils.is_normalized(exprsn=expression)

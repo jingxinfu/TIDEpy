@@ -13,7 +13,7 @@
 
 
 import pandas as pd
-from TIDE import GENE_REF
+from tidepy import GENE_REF
 
 def toEntrez(expression,gene_ref=GENE_REF):
     ''' Convert expression matrix with Ensemble ID or Gene symbol as index to expression matrix with Entrez ID

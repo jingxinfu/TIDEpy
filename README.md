@@ -20,7 +20,7 @@ $ pip install .
 ### Pip
 
 ```
-$ pip install TIDE
+$ pip install tidepy
 ```
 
 ## Paramaters 
@@ -48,7 +48,7 @@ $ pip install TIDE
 ### Run TIDE through command line:
 
 ```
-usage: TIDE [-h] -o OUTPUT -c {Melanoma,NSCLC,Other} [--pretreat]
+usage: tidepy [-h] -o OUTPUT -c {Melanoma,NSCLC,Other} [--pretreat]
             [--vthres VTHRES]
             expression
 
@@ -78,7 +78,7 @@ optional arguments:
 Please download the first example file under **Response Prediction** module on our website: http://tide.dfci.harvard.edu. The file name should be `GSE78220.self_subtract.zip`. To obtain the immune-related metrics for this study, you can run following code on your terminal:
 
 ```shell
-$ TIDE GSE78220.self_subtract.zip -o GSE78220.txt -c Melanoma
+$ tidepy GSE78220.self_subtract.zip -o GSE78220.txt -c Melanoma
 ```
 
 The output file `GSE78220.txt` has those columns: No benefits, Responder, TIDE, IFNG, MSI Score, CD274, CD8, CTL.flag, Dysfunction, Exclusion, MDSC, CAF, TAM M2, which are exactly the same with the result outputted from our website. 
@@ -103,9 +103,10 @@ Pt7	False	False	0.6718349276249306	-0.7193369628115166	0.44483998965603927	-0.81
 Please download the first example file under **Response Prediction** module on our website: http://tide.dfci.harvard.edu. The file name should be `GSE78220.self_subtract.zip`. To obtain the immune-related metrics for this study, you can run following code inside python console:
 
 ```python
-import TIDE
+import pandas as pd
+from tidepy.pred import TIDE
 df = pd.read_csv("GSE78220.self_subtract.zip",sep='\t',index_col=0)
-result = TIDE.ResponsePrediction(df,cancer='Melanoma',pretreat=False,vthres=0.)
+result = TIDE(df,cancer='Melanoma',pretreat=False,vthres=0.)
 result.head(2)
 """
 No benefits	Responder	TIDE	IFNG	MSI Score	CD274	CD8	CTL.flag	Dysfunction	Exclusion	MDSC	CAF	TAM M2

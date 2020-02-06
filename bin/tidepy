@@ -15,8 +15,8 @@ __doc__="""
 """
 import argparse
 import pandas as pd 
-from TIDE.model import CANCER_CHOICE
-from TIDE.pred import ResponsePrediction
+from tidepy.model import CANCER_CHOICE
+from tidepy.pred import TIDE 
 
 if __name__ == "__main__":
 
@@ -35,5 +35,5 @@ if __name__ == "__main__":
     parser.add_argument('--vthres',default=0.,type=float,help='Threshold to distinguish responder fron non-responder based on TIDE value.')
     args = parser.parse_args()
     expression = pd.read_csv(args.expression,sep='\t',index_col=0)
-    result = ResponsePrediction(expression,cancer=args.cancer,pretreat=args.pretreat,vthres=args.vthres)
+    result = TIDE(expression,cancer=args.cancer,pretreat=args.pretreat,vthres=args.vthres)
     result.to_csv(args.output,sep='\t')

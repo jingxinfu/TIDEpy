@@ -1,11 +1,11 @@
 import setuptools
-from TIDE import __version__
+from tidepy import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="TIDE",
+    name="tidepy",
     version=__version__,
     author="Jingxin Fu",
     author_email="jingxinfu.tj@gmail.com",
@@ -14,8 +14,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jingxinfu/TIDEpy",
     packages=setuptools.find_packages(),
-    scripts=['bin/TIDE'],
-    package_data={'TIDEpy': ["data/*.pkl"],},
+    scripts=['bin/tidepy'],
+    package_data={'tidepy': ["data/*.pkl"],},
     include_package_data=True,
     install_requires=['pandas','numpy'],
     python_requires='>=2.7, <4',
