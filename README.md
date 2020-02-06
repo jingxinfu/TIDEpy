@@ -1,6 +1,8 @@
-# TIDE (Tumor Immune Dysfunction and Exclusion)
+# TIDE command-line interface and python module
 
-This is a python package to calculate the T cell dysfunction score, T cell exclusion score, MSI Score, and other immune-related metrics for your gene expression profile. User needs to provide a gene expression file,  the cancer type, pre-treatment information. If you prefer to run it
+[![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy)[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html)
+
+**TIDE** (**T**umor **I**mmune **D**ysfunction and **E**xclusion)  is a computational framework developed to evaluate the potential of tumor immune escape from the gene expression profiles of cancer samples. This package provides a python implemented CLI, and python module with Pandas inputs and outputs. If you prefer to run TIDE online, please use `Response Prediction` module on our website : http://tide.dfci.harvard.edu/. 
 
 ## System requirements
 
@@ -23,9 +25,13 @@ $ pip install .
 $ pip install tidepy
 ```
 
-## Paramaters 
+## What is the input data format?
 
-**Expression FIle:**
+The input data should be a square matrix of gene expression profiles for all patients. Each column represents the patient ID, and each row represents a gene name which can be either symbol name (e.g., TGFB1) or Entrez ID (e.g., 7040). Please see some samples from [anti-PD1](http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.gz) or [anti-CTLA4](http://tide.dfci.harvard.edu/download/VanAllen.self_subtract.gz) therapies in melanoma. 
+
+#### In detail:
+
+`Expression FIle`
 
 1. If it's possible, please input a normalized expression file follows the instruction:
 
@@ -115,7 +121,10 @@ Pt32	True	False	2.374656680742425	-1.251790579471	0.03317166493632983	-1.3439617
 """
 ```
 
+## Citation
 
+-  Jingxin Fu, Karen Li, Wubing Zhang, Changxin Wan, Jing Zhang§, Peng Jiang§, Xiaole Shirley Liu§. ***"Large-scale public data reuse to model immunotherapy response and resistance."*** Genome Medicine (Accepted 2020)
+- Peng Jiang\*, Shengqing Gu\*, Deng Pan\*, Jingxin Fu, Avinash Sahu, Xihao Hu, Ziyi Li, Nicole Traugh, Xia Bu, Bo Li, Jun Liu, Gordon J. Freeman, Myles A. Brown, Kai W. Wucherpfennig§, X. Shirley Liu§.***"Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response."*** Nature medicine. 2018 Oct;24(10):1550-8. [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/30127393) | [Read the paper](https://www.nature.com/articles/s41591-018-0136-1) | [PDF](http://tide.dfci.harvard.edu/download/manuscript_TIDE.pdf)
 
 
 

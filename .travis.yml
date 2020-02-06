@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.3"
+  - "2.7"
+  - "2.6"
+before_install:
+  - "wget http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.zip"
+# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: 
+  - pip install .
+  - pip install nose coverage
+  - pip install coveralls 
+# # command to run tests, e.g. python setup.py test
+script:  
+  - tidepy GSE78220.self_subtract.zip -c Melanoma -o test 
+after_sucess:
+  coveralls
