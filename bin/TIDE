@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+################################################################################
+# Created Data : Wednesday July 31st 2019                                      #
+# Author: jingxin (jingxinfu.tj@gmail.com)                                     #
+# ----------                                                                   #
+# Last Modified: Wednesday February 5th 2020 6:55:14 pm                        #
+# Modified By: Jingxin Fu (jingxinfu.tj@gmail.com)                             #
+# ----------                                                                   #
+# Copyright (c) 2019                                                           #
+# Licence : MIT https://opensource.org/licenses/MIT                            #
+################################################################################
+
+__doc__="""
+"""
+import argparse
+import pandas as pd 
+from TIDE.model import CANCER_CHOICE
+from TIDE.pred import ResponsePrediction
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('expression',help="Path to expression profile")
+    parser.add_argument('-o', '--output', type=str, required=True, help="Output Path")
+    parser.add_argument('-c', '--cancer', type=str, required=True, help="Cancer Type",choices=CANCER_CHOICE)
+    parser.add_argument('--pretreat', dest='pretreat',action='store_true',
+                        help=r'''
+                        A previous immunotherapy (e.g., progressed after anti-CTLA4 before current anti-PD1) will change the response prediction rule. 
+                        Please put the flag with previous line of immunotherapy. 
+                        However, earlier treatments of targeted therapies or chemotherapies should not be considered here,
+                        and please do not put the flag.
+                        ''')
+    parser.add_argument('--vthres',default=0.,type=float,help='Threshold to distinguish responder fron non-responder based on TIDE value.')
+    args = parser.parse_args()
+    expression = pd.read_csv(args.expression,sep='\t',index_col=0)
+    result = ResponsePrediction(expression,cancer=args.cancer,pretreat=args.pretreat,vthres=args.vthres)
+    result.to_csv(args.output,sep='\t')
