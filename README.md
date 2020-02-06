@@ -1,6 +1,6 @@
 # TIDE command-line interface and python module
 
-[![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy)[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html)[![Build Status](https://travis-ci.org/jingxinfu/TIDEpy.svg?branch=master)](https://travis-ci.org/jingxinfu/TIDEpy) ![GitHub Releases](https://img.shields.io/github/downloads/jingxinfu/tidepy/latest/total)
+[![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy)[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html)[![Build Status](https://travis-ci.org/jingxinfu/TIDEpy.svg?branch=master)](https://travis-ci.org/jingxinfu/TIDEpy) ![GitHub All Releases](https://img.shields.io/github/downloads/jingxinfu/tidepy/total?style=social)
 
 **TIDE** (**T**umor **I**mmune **D**ysfunction and **E**xclusion)  is a computational framework developed to evaluate the potential of tumor immune escape from the gene expression profiles of cancer samples. This package provides a python implemented CLI, and python module with Pandas inputs and outputs. If you prefer to run TIDE online, please use `Response Prediction` module on our website : http://tide.dfci.harvard.edu/. 
 
