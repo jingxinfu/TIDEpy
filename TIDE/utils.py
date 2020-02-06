@@ -35,6 +35,7 @@ def toEntrez(expression,gene_ref=GENE_REF):
         map(lambda v: not isinstance(v, (int, float)), expression.index))
     num_genes = float(expression.shape[0])
     if cnt_nonint > 0:
+
         ind_g = gene_ref['Symbol'][expression.index.map(lambda x:x.upper())]
         ind_e = gene_ref['ENSG'][expression.index.map(lambda x:x.upper())]
 
@@ -45,13 +46,15 @@ def toEntrez(expression,gene_ref=GENE_REF):
         # too few genes
         if sum(flag) < num_genes/2 or sum(flag) < 10:
            raise ValueError('Only ' + str(sum(flag)) + ' out of ' + str(expression.shape[0]) + \
-               ' gene names are found. We only support: Ensembl ID, EntrezID, and Gene symbol')
+               ' gene names are found. We only support: Ensembl ID, EntrezID (Without Version Digit), and Hugo symbol')
         elif sum(flag) < num_genes:
             miss_ratio = 1 - sum(flag)/num_genes
-            print("[WARN] %.2f %% Genes are missing after converting to Entrez ID" % (miss_ration*100) )
+            print("[WARN] %.2f %% Genes are missing after converting to Entrez ID" % (miss_ratio*100) )
             expression = expression.loc[flag]
 
     expression = expression.groupby(level=0).mean()
+    expression.index = expression.index.astype('int64')
+
     return expression
 
 def is_normalized(exprsn):

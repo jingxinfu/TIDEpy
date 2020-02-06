@@ -1,16 +1,27 @@
 # TIDE (Tumor Immune Dysfunction and Exclusion)
 
-This is the script to calculate the TIDE score and immunesuppresive metrics for your gene expression profile. User needs to provide a gene expression file,  the cancer type, pre-treatment information.  
+This is a python package to calculate the T cell dysfunction score, T cell exclusion score, MSI Score, and other immune-related metrics for your gene expression profile. User needs to provide a gene expression file,  the cancer type, pre-treatment information. If you prefer to run it
+
+## System requirements
+
+- Linux/Unix
+- Python (>=2.7)
 
 ## Installation
 
-```
-git clone git@github.com:jingxinfu/TIDEpy.git
-cd TIDEpy
-pip install .
+### Github
+
+```sehll
+$ git clone git@github.com:jingxinfu/TIDEpy.git
+$ cd TIDEpy
+$ pip install .
 ```
 
+### Pip
 
+```
+$ pip install TIDE
+```
 
 ## Paramaters 
 
@@ -32,9 +43,9 @@ pip install .
 
  We validated TIDE performance on predicting anti-PD1 and anti-CTLA4 response across several melanoma datasets and a limited dataset  of non-small cell lung cancer (NSCLC). TIDE may not work on cancer types other than melanoma and NSCLC (e.g., glioblastoma, or renal cell carcinoma) and therapies other than anti-PD1 and anti-CTLA4 (e.g., anti-PDL1, or Car T). 
 
+## Usage
 
-
-## For command line usage:
+### Run TIDE through command line:
 
 ```
 usage: TIDE [-h] -o OUTPUT -c {Melanoma,NSCLC,Other} [--pretreat]
@@ -62,7 +73,7 @@ optional arguments:
                         based on TIDE value. (default: 0.0)
 ```
 
-### Example
+#### Example
 
 Please download the first example file under **Response Prediction** module on our website: http://tide.dfci.harvard.edu. The file name should be `GSE78220.self_subtract.zip`. To obtain the immune-related metrics for this study, you can run following code on your terminal:
 
@@ -87,7 +98,7 @@ Pt9	False	False	0.8010709440747635	0.2580580358761666	0.7296845983437736	-0.5824
 Pt7	False	False	0.6718349276249306	-0.7193369628115166	0.44483998965603927	-0.8181523873759999	-0.8982304490069999	False	-0.6222713974526163	0.6718349276249306	0.0767865719035387	-0.01954210031741603	0.048268448437660275
 ```
 
-## Run gseapy inside python console:
+### Run TIDE inside python console:
 
 Please download the first example file under **Response Prediction** module on our website: http://tide.dfci.harvard.edu. The file name should be `GSE78220.self_subtract.zip`. To obtain the immune-related metrics for this study, you can run following code inside python console:
 

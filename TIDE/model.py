@@ -33,12 +33,11 @@ def msi_pred(exprsn,msi_model):
         MSI score for every samples
     """
     ol_gene = exprsn.index.intersection(msi_model.index)
-    miss_gene = float(len(ol_gene)) / msi_model.shape[0]
-    if miss_gene == 0:
+    miss_gene = 1 - (float(len(ol_gene)) / msi_model.shape[0])
+    if miss_gene == 1:
         raise ValueError('No MSI signature genes in the exprsn')
-    elif miss_gene < 1:
-        print('[WARN] %.1f%% MSI signature genes are missing on input expression profile.' % (
-            (1 - miss_gene)*100))
+    elif miss_gene > 0.1:
+        print('[WARN] %.1f%% MSI signature genes are missing on input expression profile.' % (miss_gene*100) )
 
     msi_score = np.exp(exprsn.T[ol_gene].dot(msi_model.loc[ol_gene]))
     msi_score = msi_score.apply(lambda v: v/msi_score.sum(axis=1), axis=0)
