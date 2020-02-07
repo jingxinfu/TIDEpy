@@ -12,7 +12,7 @@ setuptools.setup(
     description="A computational method to predict immunotherapy response.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jingxinfu/TIDEpy",
+    url="https://jingxinfu.github.io/TIDEpy",
     packages=setuptools.find_packages(),
     scripts=['bin/tidepy'],
     package_data={'tidepy': ["data/*.pkl"],},

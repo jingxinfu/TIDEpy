@@ -1,29 +1,35 @@
 # TIDE command-line interface and python module
 
-[![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy)[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html)[![Build Status](https://travis-ci.org/jingxinfu/TIDEpy.svg?branch=master)](https://travis-ci.org/jingxinfu/TIDEpy) ![GitHub Releases](https://img.shields.io/github/downloads/jingxinfu/tidepy/latest/total)
+[![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy) ![PyPI - Format](https://img.shields.io/pypi/format/tidepy?style=flat-square) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html) [![Build Status](https://travis-ci.org/jingxinfu/TIDEpy.svg?branch=master)](https://travis-ci.org/jingxinfu/TIDEpy) [![PyPI - Downloads](https://img.shields.io/pypi/dm/tidepy?color=green&label=pypi%20download&logoColor=green&style=flat-square)](https://pypi.org/project/tidepy/) [![GitHub All Releases](https://img.shields.io/github/downloads/jingxinfu/tidepy/total?style=social)](https://github.com/jingxinfu/TIDEpy/releases/download/v1.3/TIDEpy-latest.zip)
+
 
 **TIDE** (**T**umor **I**mmune **D**ysfunction and **E**xclusion)  is a computational framework developed to evaluate the potential of tumor immune escape from the gene expression profiles of cancer samples. This package provides a python implemented CLI, and python module with Pandas inputs and outputs. If you prefer to run TIDE online, please use `Response Prediction` module on our website : http://tide.dfci.harvard.edu/. 
 
-## System requirements
 
+## System requirements
 - Linux/Unix
 - Python (>=2.7)
 
 ## Installation
-
-### Github
-
+- From Source
+```sehll
+$ wget https://github.com/jingxinfu/TIDEpy/releases/download/v1.3/TIDEpy-latest.zip
+$ unzip TIDEpy-latest.zip
+$ cd TIDEpy-latest
+$ pip install .
+```
+- Clone from github
 ```sehll
 $ git clone git@github.com:jingxinfu/TIDEpy.git
 $ cd TIDEpy
 $ pip install .
 ```
-
-### Pip
-
+- From the [pypi](https://pypi.org/project/tidepy/), a python package management tool
 ```
 $ pip install tidepy
 ```
+
+
 
 ## What is the input data format?
 
@@ -31,7 +37,7 @@ The input data should be a square matrix of gene expression profiles for all pat
 
 #### In detail:
 
-`Expression FIle`
+**Expression File**
 
 1. If it's possible, please input a normalized expression file follows the instruction:
 
@@ -124,7 +130,7 @@ Pt32	True	False	2.374656680742425	-1.251790579471	0.03317166493632983	-1.3439617
 ## Citation
 
 -  Jingxin Fu, Karen Li, Wubing Zhang, Changxin Wan, Jing Zhang§, Peng Jiang§, Xiaole Shirley Liu§. ***"Large-scale public data reuse to model immunotherapy response and resistance."*** Genome Medicine (Accepted 2020)
-- Peng Jiang\*, Shengqing Gu\*, Deng Pan\*, Jingxin Fu, Avinash Sahu, Xihao Hu, Ziyi Li, Nicole Traugh, Xia Bu, Bo Li, Jun Liu, Gordon J. Freeman, Myles A. Brown, Kai W. Wucherpfennig§, X. Shirley Liu§.***"Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response."*** Nature medicine. 2018 Oct;24(10):1550-8. [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/30127393) | [Read the paper](https://www.nature.com/articles/s41591-018-0136-1) | [PDF](http://tide.dfci.harvard.edu/download/manuscript_TIDE.pdf)
 
+- Peng Jiang\*, Shengqing Gu\*, Deng Pan\*, Jingxin Fu, Avinash Sahu, Xihao Hu, Ziyi Li, Nicole Traugh, Xia Bu, Bo Li, Jun Liu, Gordon J. Freeman, Myles A. Brown, Kai W. Wucherpfennig§, X. Shirley Liu§.***"Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response."*** Nature medicine. 2018 Oct;24(10):1550-8. 
 
 
