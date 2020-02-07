@@ -127,7 +127,7 @@ Pt32	True	False	2.374656680742425	-1.251790579471	0.03317166493632983	-1.3439617
 ## Citation
 
 -  Jingxin Fu, Karen Li, Wubing Zhang, Changxin Wan, Jing Zhang§, Peng Jiang§, Xiaole Shirley Liu§. ***"Large-scale public data reuse to model immunotherapy response and resistance."*** Genome Medicine (Accepted 2020)
-- Peng Jiang\*, Shengqing Gu\*, Deng Pan\*, Jingxin Fu, Avinash Sahu, Xihao Hu, Ziyi Li, Nicole Traugh, Xia Bu, Bo Li, Jun Liu, Gordon J. Freeman, Myles A. Brown, Kai W. Wucherpfennig§, X. Shirley Liu§.***"Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response."*** Nature medicine. 2018 Oct;24(10):1550-8. [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/30127393) | [Read the paper](https://www.nature.com/articles/s41591-018-0136-1) | [PDF](http://tide.dfci.harvard.edu/download/manuscript_TIDE.pdf)
 
+- Peng Jiang\*, Shengqing Gu\*, Deng Pan\*, Jingxin Fu, Avinash Sahu, Xihao Hu, Ziyi Li, Nicole Traugh, Xia Bu, Bo Li, Jun Liu, Gordon J. Freeman, Myles A. Brown, Kai W. Wucherpfennig§, X. Shirley Liu§.***"Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response."*** Nature medicine. 2018 Oct;24(10):1550-8. 
 
 
