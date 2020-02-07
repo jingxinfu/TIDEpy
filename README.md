@@ -18,18 +18,16 @@ $ cd TIDEpy-latest
 $ pip install .
 ```
 - Clone from github
-```
+
 ```sehll
 $ git clone git@github.com:jingxinfu/TIDEpy.git
 $ cd TIDEpy
 $ pip install .
 ```
-- Via Pipy
+- From the [pipy](https://pypi.org/project/tidepy/), a python package management tool
 ```
 $ pip install tidepy
 ```
-
-[Document](https://jingxinfu.github.io/TIDEpy/)
 ## What is the input data format?
 
 The input data should be a square matrix of gene expression profiles for all patients. Each column represents the patient ID, and each row represents a gene name which can be either symbol name (e.g., TGFB1) or Entrez ID (e.g., 7040). Please see some samples from [anti-PD1](http://tide.dfci.harvard.edu/download/GSE78220.self_subtract.gz) or [anti-CTLA4](http://tide.dfci.harvard.edu/download/VanAllen.self_subtract.gz) therapies in melanoma. 
