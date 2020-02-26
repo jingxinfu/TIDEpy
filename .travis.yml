@@ -1,32 +1,20 @@
+# Author            : Jingxin Fu <jingxinfu.tj@gmail.com>
+# Date              : 26/02/2020
+# Last Modified Date: 26/02/2020
+# Last Modified By  : Jingxin Fu <jingxinfu.tj@gmail.com>
 language: python
-cache:
-  directories:
-    - $HOME/miniconda3
-
-before_cache:
-  - rm -rf $HOME/miniconda3/pkgs/cache
-  - rm -rf $HOME/miniconda3/envs/hosts
-  - rm -rf $HOME/miniconda3/conda-meta/history
-  - touch $HOME/miniconda3/conda-meta/history
+python:
+ - 3.5
+ - 3.8
 
 os:
   - linux
-env:
-  - PYTHON_VERSION="3.5"
-  - PYTHON_VERSION="3.6"
-  - PYTHON_VERSION="3.7"
-  - PYTHON_VERSION="2.7"
-
-before_install:
-  - export PATH="$HOME/miniconda3/bin:$PATH"
 
 branches:
   only:
   - master
   - /^v.*$/
 install: 
-- ci/install_conda.sh
-- ci/setup_conda_env.sh
 - pip install .
 # # command to run tests, e.g. python setup.py test
 script:  
