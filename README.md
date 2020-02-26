@@ -1,3 +1,7 @@
+ Author            : Jingxin Fu <jingxinfu.tj@gmail.com>
+ Date              : 26/02/2020
+ Last Modified Date: 26/02/2020
+ Last Modified By  : Jingxin Fu <jingxinfu.tj@gmail.com>
 # TIDE command-line interface and python module
 
 [![PyPI version](https://badge.fury.io/py/tidepy.svg)](https://badge.fury.io/py/tidepy) ![PyPI - Format](https://img.shields.io/pypi/format/tidepy?style=flat-square) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.en.html) [![Build Status](https://travis-ci.org/jingxinfu/TIDEpy.svg?branch=master)](https://travis-ci.org/jingxinfu/TIDEpy) [![PyPI - Downloads](https://img.shields.io/pypi/dm/tidepy?color=green&label=pypi%20download&logoColor=green&style=flat-square)](https://pypi.org/project/tidepy/) [![GitHub All Releases](https://img.shields.io/github/downloads/jingxinfu/tidepy/total?style=social)](https://github.com/jingxinfu/TIDEpy/releases/download/v1.3/TIDEpy-latest.zip)
@@ -8,7 +12,7 @@
 
 ## System requirements
 - Linux/Unix
-- Python (>=2.7)
+- Python (>=3.4)
 
 ## Installation
 - From Source

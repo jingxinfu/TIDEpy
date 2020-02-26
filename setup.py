@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Author            : Jingxin Fu <jingxinfu.tj@gmail.com>
+# Date              : 26/02/2020
+# Last Modified Date: 26/02/2020
+# Last Modified By  : Jingxin Fu <jingxinfu.tj@gmail.com>
 import setuptools
 from tidepy import __version__
 
@@ -18,7 +24,7 @@ setuptools.setup(
     package_data={'tidepy': ["data/*.pkl"],},
     include_package_data=True,
     install_requires=['pandas','numpy'],
-    python_requires='>=2.7, <4',
+    python_requires='>=3.4, <4',
     keywords= ['Immunotherapy', 'ICB Prediction','Biomarkers',
           'Bioinformatics', 'Computational Biology'],
     classifiers=[

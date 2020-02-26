@@ -1,7 +1,9 @@
+# Author            : Jingxin Fu <jingxinfu.tj@gmail.com>
+# Date              : 26/02/2020
+# Last Modified Date: 26/02/2020
+# Last Modified By  : Jingxin Fu <jingxinfu.tj@gmail.com>
 language: python
 python:
- - 2.7
- - 3.3
  - 3.5
  - 3.8
 
