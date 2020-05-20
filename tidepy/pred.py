@@ -20,14 +20,15 @@ from tidepy import utils
 from tidepy import model
 from tidepy import MODEL_DB_PATH
 MODEL_DB = pd.read_pickle(MODEL_DB_PATH)
-def TIDE(expression, cancer, pretreat=False, vthres=0):
+def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False):
     # translate the number of expression
     expression = utils.toEntrez(expression)
-    is_normalized = utils.is_normalized(exprsn=expression)
-    if not is_normalized:
-        print("[WARN] Start normalizing the input expression profile by: 1. Do the log2(x+1) transformation. 2. Subtract the average across your samples.")
-        expression = np.log2(expression + 1)
-        expression = expression.apply(lambda v: v-v.mean(),axis=1)
+    if not ignore_norm:
+        is_normalized = utils.is_normalized(exprsn=expression)
+        if not is_normalized :
+            print("[WARN] Start normalizing the input expression profile by: 1. Do the log2(x+1) transformation. 2. Subtract the average across your samples.")
+            expression = np.log2(expression + 1)
+            expression = expression.apply(lambda v: v-v.mean(),axis=1)
 	### Combine all biomarkers together
 	# TIDE
     result = model.tide_pred(exprsn=expression,cancer=cancer,tide_model=MODEL_DB['tide'],pretreat=pretreat,vthres=vthres)
