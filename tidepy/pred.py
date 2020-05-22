@@ -29,6 +29,8 @@ def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False):
             print("[WARN] Start normalizing the input expression profile by: 1. Do the log2(x+1) transformation. 2. Subtract the average across your samples.")
             expression = np.log2(expression + 1)
             expression = expression.apply(lambda v: v-v.mean(),axis=1)
+    expression = expression.replace(
+        [-np.inf, np.inf], np.nan)  # avoid nan in tide, as corrwith cannot handle INFs and NAs will be returned.
 	### Combine all biomarkers together
 	# TIDE
     result = model.tide_pred(exprsn=expression,cancer=cancer,tide_model=MODEL_DB['tide'],pretreat=pretreat,vthres=vthres)
