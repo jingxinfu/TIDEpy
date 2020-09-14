@@ -20,12 +20,12 @@ from tidepy import utils
 from tidepy import model
 from tidepy import MODEL_DB_PATH
 MODEL_DB = pd.read_pickle(MODEL_DB_PATH)
-def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False):
+def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False,force_normalize=False):
     # translate the number of expression
     expression = utils.toEntrez(expression)
     if not ignore_norm:
         is_normalized = utils.is_normalized(exprsn=expression)
-        if not is_normalized :
+        if (not is_normalized) or force_normalize:
             print("[WARN] Start normalizing the input expression profile by: 1. Do the log2(x+1) transformation. 2. Subtract the average across your samples.")
             expression = np.log2(expression + 1)
             expression = expression.apply(lambda v: v-v.mean(),axis=1)
