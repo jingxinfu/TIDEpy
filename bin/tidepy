@@ -32,11 +32,16 @@ if __name__ == "__main__":
                         However, earlier treatments of targeted therapies or chemotherapies should not be considered here,
                         and please do not put the flag.
                         ''')
+    parser.add_argument('--ignore_norm', dest='ignore_norm', action='store_true',
+                        help=r'''Whether ignore the normalization step.''')
+
     parser.add_argument('--force_normalize', dest='force_normalize', action='store_true',
-                        help=r'''Wheter force to do the normalization''')
+                        help=r'''Whether force to do the normalization.[Require ignore_norm to be FALSE]''')
+    
     parser.add_argument('--vthres',default=0.,type=float,help='Threshold to distinguish responder fron non-responder based on TIDE value.')
     args = parser.parse_args()
     expression = pd.read_csv(args.expression,sep='\t',index_col=0)
     result = TIDE(expression, cancer=args.cancer, pretreat=args.pretreat,
-                  vthres=args.vthres, force_normalize=args.force_normalize)
+                  vthres=args.vthres, force_normalize=args.force_normalize,
+                  ignore_norm=args.ignore_norm)
     result.to_csv(args.output,sep='\t')

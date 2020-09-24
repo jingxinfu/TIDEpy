@@ -54,12 +54,11 @@ The input data should be a square matrix of gene expression profiles for all pat
 
 ```
 usage: tidepy [-h] -o OUTPUT -c {Melanoma,NSCLC,Other} [--pretreat]
-            [--vthres VTHRES]
-            expression
+              [--ignore_norm] [--force_normalize] [--vthres VTHRES]
+              expression
 
 positional arguments:
-  expression            Path to expression profile.
-  											
+  expression            Path to expression profile
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -74,6 +73,10 @@ optional arguments:
                         treatments of targeted therapies or chemotherapies
                         should not be considered here, and please do not put
                         the flag. (default: False)
+  --ignore_norm         Whether ignore the normalization step. (default:
+                        False)
+  --force_normalize     Whether force to do the normalization.[Require
+                        ignore_norm to be FALSE] (default: False)
   --vthres VTHRES       Threshold to distinguish responder fron non-responder
                         based on TIDE value. (default: 0.0)
 ```
