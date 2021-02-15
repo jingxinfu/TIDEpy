@@ -46,5 +46,5 @@ def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False,force_no
     result['No benefits'] = (result.TIDE > 1) & (result.IFNG < -1)
 
     result = result[['No benefits', 'Responder', 'TIDE', 'IFNG',  'MSI Score','CD274','CD8','CTL.flag', 'Dysfunction',
-        'Exclusion', 'MDSC', 'CAF', 'TAM M2']].sort_values('TIDE', ascending=False)
+        'Exclusion', 'MDSC', 'CAF', 'TAM M2','CTL']].sort_values('TIDE', ascending=False)
     return result

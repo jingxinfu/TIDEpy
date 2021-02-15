@@ -4,7 +4,7 @@
 # Created Date : Wednesday February 5th 2020                                   #
 # Author: Jingxin Fu (jingxinfu.tj@gmail.com)                                  #
 # ----------                                                                   #
-# Last Modified: Wednesday February 5th 2020 5:55:13 pm                        #
+# Last Modified: Wednesday May 20th 2020 4:37:53 pm                            #
 # Modified By: Jingxin Fu (jingxinfu.tj@gmail.com)                             #
 # ----------                                                                   #
 # Copyright (c) Jingxin Fu 2020                                                #
@@ -65,6 +65,11 @@ def tide_pred(exprsn, cancer,tide_model,pretreat=False,vthres=0):
 
     CTL_flag = exprsn.loc[set_CTL].min() > 0
     CTL_flag.name = 'CTL.flag'
+
+    ## Adding CTL_Score
+    CTL_score = exprsn.loc[set_CTL].mean()
+    CTL_score.name ='CTL'
+    
     correlation = dysfunction_model.apply(lambda v: exprsn.corrwith(v))
     correlation = correlation.divide(signature_sd)
     correlation['TIDE'] = correlation['Exclusion']
@@ -80,7 +85,7 @@ def tide_pred(exprsn, cancer,tide_model,pretreat=False,vthres=0):
     correlation_exclusion = exclusion_model.apply(
         lambda v: exprsn.corrwith(v))
     result = pd.concat(
-        [correlation, CTL_flag, response, correlation_exclusion], axis=1)
+        [correlation, CTL_flag, response, correlation_exclusion,CTL_score], axis=1)
 
     return result
 
