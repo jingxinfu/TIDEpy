@@ -23,7 +23,7 @@ setuptools.setup(
     scripts=['bin/tidepy'],
     package_data={'tidepy': ["data/*.pkl"],},
     include_package_data=True,
-    install_requires=['pandas<1.1','numpy'],
+    install_requires=['pandas','numpy'],
     python_requires='>=3.4, <4',
     keywords= ['Immunotherapy', 'ICB Prediction','Biomarkers',
           'Bioinformatics', 'Computational Biology'],

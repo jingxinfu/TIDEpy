@@ -63,13 +63,13 @@ def tide_pred(exprsn, cancer,tide_model,pretreat=False,vthres=0):
         # use the melanoma rule for approximation
         signature_sd = signature_sd.loc['SKCM.RNASeq']
 
-    CTL_flag = exprsn.loc[set_CTL].min() > 0
+    CTL_flag = exprsn.reindex[set_CTL].min() > 0
     CTL_flag.name = 'CTL.flag'
 
     ## Adding CTL_Score
-    CTL_score = exprsn.loc[set_CTL].mean()
+    CTL_score = exprsn.reindex[set_CTL].mean()
     CTL_score.name ='CTL'
-    
+
     correlation = dysfunction_model.apply(lambda v: exprsn.corrwith(v))
     correlation = correlation.divide(signature_sd)
     correlation['TIDE'] = correlation['Exclusion']
