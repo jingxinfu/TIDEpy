@@ -4,8 +4,8 @@
 # Created Date : Wednesday February 5th 2020                                   #
 # Author: Jingxin Fu (jingxinfu.tj@gmail.com)                                  #
 # ----------                                                                   #
-# Last Modified: Wednesday February 5th 2020 6:07:38 pm                        #
-# Modified By: Jingxin Fu (jingxinfu.tj@gmail.com)                             #
+# Last Modified: Monday August 29th 2022 9:34:34 am                            #
+# Modified By: Jingxin Fu (jingxin@broadinstitute.org)                         #
 # ----------                                                                   #
 # Copyright (c) Jingxin Fu 2020                                                #
 # Licence : MIT https://opensource.org/licenses/MIT                            #
@@ -37,8 +37,8 @@ def toEntrez(expression,gene_ref=GENE_REF):
     num_genes = float(expression.shape[0])
     if cnt_nonint > 0:
 
-        ind_g = gene_ref['Symbol'][expression.index.map(lambda x:x.upper())]
-        ind_e = gene_ref['ENSG'][expression.index.map(lambda x:x.upper())]
+        ind_g = gene_ref['Symbol'].reindex(expression.index.map(lambda x:x.upper()))
+        ind_e = gene_ref['ENSG'].reindex(expression.index.map(lambda x:x.upper()))
 
         map_count = len(ind_g.dropna()) - len(ind_e.dropna())
         expression.index = ind_g if map_count > 0 else ind_e

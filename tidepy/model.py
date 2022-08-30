@@ -4,8 +4,8 @@
 # Created Date : Wednesday February 5th 2020                                   #
 # Author: Jingxin Fu (jingxinfu.tj@gmail.com)                                  #
 # ----------                                                                   #
-# Last Modified: Wednesday May 20th 2020 4:37:53 pm                            #
-# Modified By: Jingxin Fu (jingxinfu.tj@gmail.com)                             #
+# Last Modified: Tuesday August 30th 2022 8:50:09 am                           #
+# Modified By: Jingxin Fu (jingxin@broadinstitute.org)                         #
 # ----------                                                                   #
 # Copyright (c) Jingxin Fu 2020                                                #
 # Licence : MIT https://opensource.org/licenses/MIT                            #
@@ -63,11 +63,11 @@ def tide_pred(exprsn, cancer,tide_model,pretreat=False,vthres=0):
         # use the melanoma rule for approximation
         signature_sd = signature_sd.loc['SKCM.RNASeq']
 
-    CTL_flag = exprsn.reindex[set_CTL].min() > 0
+    CTL_flag = exprsn.reindex(set_CTL).min() > 0
     CTL_flag.name = 'CTL.flag'
 
     ## Adding CTL_Score
-    CTL_score = exprsn.reindex[set_CTL].mean()
+    CTL_score = exprsn.reindex(set_CTL).mean()
     CTL_score.name ='CTL'
 
     correlation = dysfunction_model.apply(lambda v: exprsn.corrwith(v))
