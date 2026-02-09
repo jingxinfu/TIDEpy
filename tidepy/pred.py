@@ -4,7 +4,7 @@
 # Created Date : Wednesday February 5th 2020                                   #
 # Author: Jingxin Fu (jingxinfu.tj@gmail.com)                                  #
 # ----------                                                                   #
-# Last Modified: Wednesday February 5th 2020 6:19:01 pm                        #
+# Last Modified: Monday February 9th 2026 6:19:01 pm                           #
 # Modified By: Jingxin Fu (jingxinfu.tj@gmail.com)                             #
 # ----------                                                                   #
 # Copyright (c) Jingxin Fu 2020                                                #
@@ -14,12 +14,13 @@
 __doc__="""
 """
 
-import pandas as pd
 import numpy as np
-from tidepy import utils
-from tidepy import model
-from tidepy import MODEL_DB_PATH
-MODEL_DB = pd.read_pickle(MODEL_DB_PATH)
+import warnings
+
+from tidepy import model, utils
+
+MODEL_DB = utils.read_data_object("model.pkl")
+
 def TIDE(expression, cancer, pretreat=False, vthres=0,ignore_norm=False,force_normalize=False):
     # translate the number of expression
     expression = utils.toEntrez(expression)

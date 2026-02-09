@@ -4,7 +4,7 @@
 # Created Date : Wednesday February 5th 2020                                   #
 # Author: Jingxin Fu (jingxinfu.tj@gmail.com)                                  #
 # ----------                                                                   #
-# Last Modified: Monday August 29th 2022 9:34:34 am                            #
+# Last Modified: Monday February 9th 2026 9:34:34 am                           #
 # Modified By: Jingxin Fu (jingxin@broadinstitute.org)                         #
 # ----------                                                                   #
 # Copyright (c) Jingxin Fu 2020                                                #
@@ -12,11 +12,35 @@
 ################################################################################
 
 
+import io
+from importlib import resources
 import pandas as pd
-from tidepy import GENE_REF_PATH
-GENE_REF = pd.read_pickle(GENE_REF_PATH)
 
-def toEntrez(expression,gene_ref=GENE_REF):
+
+def read_data_object(filename: str):
+    """Load a bundled pickled object from the TIDEpy package.
+    
+    This function reads ``tidepy/data/<filename>`` using the standard library
+    ``importlib.resources`` API and deserializes it with ``pandas.read_pickle``.
+    It is a replacement for the legacy ``pkg_resources.resource_filename`` +
+    ``pd.read_pickle(path)`` approach, which no longer works with modern
+    setuptools versions (``pkg_resources`` was removed in setuptools>=82).
+
+    Parameters
+    ----------
+    filename
+        Name of the file inside the ``tidepy/data`` package directory
+        (e.g. ``"model.pkl"`` or ``"Gene_Ref.pkl"``).
+
+    Returns
+    -------
+    Any
+        The deserialized Python object stored in the pickle.
+    """
+    data = resources.files("tidepy").joinpath("data", filename).read_bytes()
+    return pd.read_pickle(io.BytesIO(data))
+
+def toEntrez(expression,gene_ref=None):
     ''' Convert expression matrix with Ensemble ID or Gene symbol as index to expression matrix with Entrez ID
 
     Parameters
@@ -31,6 +55,8 @@ def toEntrez(expression,gene_ref=GENE_REF):
         Error information
     '''
 
+    if gene_ref is None:
+        gene_ref = read_data_object("Gene_Ref.pkl")
     # translate the number of expression
     cnt_nonint = sum(
         map(lambda v: not isinstance(v, (int, float)), expression.index))

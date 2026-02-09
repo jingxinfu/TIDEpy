@@ -8,7 +8,7 @@
 
 ## System requirements
 - Linux/Unix
-- Python (>=3.4)
+- Python (>=3.9)
 
 ## Installation
 - Clone from github
